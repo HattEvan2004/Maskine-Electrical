@@ -1,0 +1,6 @@
+{
+  "name": "MaskinE Electric Ltd.",
+  "description": "Connecting POWER to past, present & future spaces. Professional residential and commercial electrical services in the Halifax Regional Municipality (HRM) and surrounding areas, available 24/7.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
