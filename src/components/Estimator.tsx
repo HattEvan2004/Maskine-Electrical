@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ESTIMATE_ITEMS } from '../data';
+import { useSiteContent } from '../sanity/useSiteContent';
 import { EstimateItem } from '../types';
 import { Calculator, Sparkles, Check, Plus, AlertCircle, FileText, ArrowRight, Zap } from 'lucide-react';
 
@@ -19,12 +20,17 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
     );
   };
 
-  const filteredItems = ESTIMATE_ITEMS.filter(item => {
+  const site = useSiteContent();
+  const items = (site?.estimates && site.estimates.length > 0)
+    ? site.estimates.map((e, i) => ({ id: e._key || ('est-' + i), name: e.name, basePrice: e.basePrice, timeframe: e.timeframe, category: e.category, description: e.description }))
+    : ESTIMATE_ITEMS;
+
+  const filteredItems = items.filter(item => {
     if (activeTab === 'all') return true;
     return item.category === activeTab;
   });
 
-  const selectedObjects = ESTIMATE_ITEMS.filter(item => selectedItems.includes(item.id));
+  const selectedObjects = items.filter(item => selectedItems.includes(item.id));
   const totalPrice = selectedObjects.reduce((acc, curr) => acc + curr.basePrice, 0);
 
   // Timeframe calculation (shows high bound or combination range)
