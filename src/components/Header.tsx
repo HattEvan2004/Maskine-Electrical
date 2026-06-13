@@ -60,7 +60,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
                 <img src={logoUrl} alt="MaskinE Electric Ltd. Logo" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-bold text-xl tracking-tight text-white flex items-center gap-1">Maskine Electric</span>
+                <span className="glow-text font-display font-bold text-xl tracking-tight text-white flex items-center gap-1">Maskine Electric</span>
                 <span className="text-[10px] text-slate-400 tracking-wider font-sans font-medium uppercase">Connecting power & light</span>
               </div>
             </div>
