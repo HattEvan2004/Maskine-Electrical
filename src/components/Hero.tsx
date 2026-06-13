@@ -31,7 +31,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-amber-400">
-              {headline}
+              {headline.split(/(POWER)/).map((part, i) => part === 'POWER' ? <span key={i} className="glow-text text-amber-400">{part}</span> : part)}
             </motion.h1>
 
             <motion.h2 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg sm:text-xl font-sans text-slate-300 font-light border-l-2 border-amber-500/50 pl-4 py-1">

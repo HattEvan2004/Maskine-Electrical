@@ -43,7 +43,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <div className="h-12 w-12 overflow-hidden flex items-center justify-center">
                 <img src="/logo.png" alt="MaskinE Electric Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-display font-bold text-lg text-white tracking-tight">Maskin<span className="text-amber-500">E</span> Electric Ltd.</span>
+              <span className="font-display font-bold text-lg text-white tracking-tight">Maskine Electric Ltd.</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed font-light">"Connecting POWER to past, present & future spaces." <br />"Connecting Light to Old & New Spaces."</p>
             <p className="text-xs text-slate-500 max-w-xs leading-relaxed">{blurb}</p>
