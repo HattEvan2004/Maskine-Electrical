@@ -40,8 +40,8 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           <div className="md:col-span-5 flex flex-col gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="h-10 w-10 md:h-12 md:w-12 rounded overflow-hidden flex items-center justify-center bg-slate-950 border border-slate-800 shadow-md">
-                <img src="https://maskineelectric.ca/wp-content/uploads/2022/09/maskine-social-01.jpeg" alt="MaskinE Electric Logo" className="w-full h-full object-cover" />
+              <div className="h-12 w-12 overflow-hidden flex items-center justify-center">
+                <img src="/logo.png" alt="MaskinE Electric Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-display font-bold text-lg text-white tracking-tight">Maskin<span className="text-amber-500">E</span> Electric Ltd.</span>
             </div>

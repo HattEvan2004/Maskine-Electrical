@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { urlFor } from '../sanity/image';
 import { Phone, Mail, MapPin, Zap, Menu, X, Star } from 'lucide-react';
 import { useSiteContent } from '../sanity/useSiteContent';
 
@@ -14,8 +15,9 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
   const phones = site?.phones?.length ? site.phones : [{ label: 'Anthony', number: '902-802-5306' }, { label: 'Mich', number: '902-830-5921' }];
   const email = site?.email || 'maskine.electric@gmail.com';
   const address = site?.address || '136 Brook Street, Halifax, NS B3N 2A8';
-  const logoSizeMap = { Small: 'h-9 w-9', Medium: 'h-12 w-12', Large: 'h-16 w-16' };
+  const logoSizeMap = { Small: 'h-16 w-16', Medium: 'h-24 w-24', Large: 'h-36 w-36' };
   const logoClass = logoSizeMap[site?.logoSize] || logoSizeMap.Medium;
+  const logoUrl = '/logo.png';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
@@ -55,7 +57,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <div className={`${logoClass} overflow-hidden flex items-center justify-center`}>
-                <img src="https://maskineelectric.ca/wp-content/uploads/2022/09/maskine-social-01.jpeg" alt="MaskinE Electric Ltd. Logo" className="w-full h-full object-cover" />
+                <img src={logoUrl} alt="MaskinE Electric Ltd. Logo" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-xl tracking-tight text-white flex items-center gap-1">Maskin<span className="text-amber-500">E</span> Electric</span>
