@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ServicesPanel from './components/ServicesPanel';
 import Estimator from './components/Estimator';
+import Gallery from './components/Gallery';
 import AreaChecker from './components/AreaChecker';
 import SafetyTips from './components/SafetyTips';
 import ContactForm from './components/ContactForm';
@@ -91,6 +92,11 @@ export default function App() {
             scrollToSection('booking');
           }}
         />
+      </div>
+
+      {/* Project Gallery */}
+      <div id="gallery">
+        <Gallery />
       </div>
 
       {/* Service Area Check Desk */}
