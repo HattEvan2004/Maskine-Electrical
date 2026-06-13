@@ -14,6 +14,8 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
   const phones = site?.phones?.length ? site.phones : [{ label: 'Anthony', number: '902-802-5306' }, { label: 'Mich', number: '902-830-5921' }];
   const email = site?.email || 'maskine.electric@gmail.com';
   const address = site?.address || '136 Brook Street, Halifax, NS B3N 2A8';
+  const logoSizeMap = { Small: 'h-9 w-9', Medium: 'h-12 w-12', Large: 'h-16 w-16' };
+  const logoClass = logoSizeMap[site?.logoSize] || logoSizeMap.Medium;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
@@ -52,7 +54,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <div className="h-10 w-10 md:h-12 md:w-12 rounded overflow-hidden flex items-center justify-center bg-slate-950 border border-slate-800 shadow-lg">
+              <div className={`${logoClass} overflow-hidden flex items-center justify-center`}>
                 <img src="https://maskineelectric.ca/wp-content/uploads/2022/09/maskine-social-01.jpeg" alt="MaskinE Electric Ltd. Logo" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
