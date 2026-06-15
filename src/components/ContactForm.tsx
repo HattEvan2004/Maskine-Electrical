@@ -257,7 +257,7 @@ export default function ContactForm({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Sarah Macdonald"
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
                 />
               </div>
 
@@ -272,7 +272,7 @@ export default function ContactForm({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="e.g. 902-802-5306"
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
                 />
               </div>
 
@@ -286,7 +286,7 @@ export default function ContactForm({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="e.g. user@domain.com"
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
                 />
               </div>
 
@@ -301,7 +301,7 @@ export default function ContactForm({
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="e.g. 136 Brook Street, Halifax, NS"
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50"
                 />
               </div>
 
@@ -313,7 +313,7 @@ export default function ContactForm({
                 <select
                   value={serviceType}
                   onChange={(e) => setServiceType(e.target.value)}
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50 appearance-none"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50 appearance-none"
                 >
                   <option value="General Lighting Repair">General Lighting Repair</option>
                   <option value="Service Panel 200A Upgrade">Service Panel 200A Upgrade</option>
@@ -413,7 +413,7 @@ export default function ContactForm({
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Describe your job. Mention relevant fixtures, panel brand, access conditions, or old-wiring history..."
-                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500/50 font-sans"
+                  className="bg-slate-900 border border-slate-800 rounded-xl py-3 px-4 text-base sm:text-sm text-white focus:outline-none focus:border-amber-500/50 font-sans"
                 />
               </div>
 
