@@ -27,3 +27,24 @@
                     linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
 }
 
+
+/* Circuit trace accent for gallery */
+@keyframes circuit-pulse {
+  0% { stroke-dashoffset: 320; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+.circuit-flow {
+  stroke-dasharray: 40 280;
+  animation: circuit-pulse 3.5s linear infinite;
+}
+.circuit-node {
+  animation: circuit-node-glow 3.5s ease-in-out infinite;
+}
+@keyframes circuit-node-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .circuit-flow, .circuit-node { animation: none; }
+}
