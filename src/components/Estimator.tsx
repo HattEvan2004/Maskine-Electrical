@@ -67,17 +67,17 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
             Transparent Pricing Engine
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight mb-4">
-            Interactive Electrical Estimate Estimator
+            Project Estimate Guide
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Choose standard residential and diagnostic operations below to build a dynamic scope estimate. We believe in upfront, clean billing.
+            Select the services that match your project to see a starting estimate. For an accurate quote, send us your details below.
           </p>
 
           {/* Pricing Disclaimer */}
           <div className="bg-slate-900/60 border border-slate-800/80 rounded-lg p-3.5 mt-5 flex items-start gap-3 max-w-2xl mx-auto text-left">
             <AlertCircle size={16} className="text-amber-500 shrink-0 mt-0.5" />
             <span className="text-[11px] sm:text-xs text-slate-400 leading-normal">
-              <strong>Please Note:</strong> Baseline figures include standard local travel, certified master craftsmanship, and typical code permits. Custom cable distances, trenching, historic site surprises, or Nova Scotia Power reconnection surcharges may affect final custom electrical quotation.
+              <strong>Please Note:</strong> Prices are starting estimates only. Final pricing depends on project details, materials, site conditions, and inspection requirements.
             </span>
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
                   <div className="flex items-start gap-2.5">
                     <FileText size={16} className="text-amber-500 shrink-0 mt-0.5" />
                     <span className="text-[11px] text-slate-400 leading-relaxed">
-                      Need Anthony or Mich to inspect this exact list? Apply these items into our fast-book scheduler below. We will receive the complete quote summary automatically.
+                      Want an accurate quote? Send us your project details and we'll get back to you.
                     </span>
                   </div>
 
@@ -238,7 +238,7 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
                     onClick={handleApplyToBooking}
                     className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 px-4 rounded-lg text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5"
                   >
-                    <span>Apply Quote to Appointment Booking</span>
+                    <span>Request Final Quote</span>
                     <ArrowRight size={14} />
                   </button>
                 </div>
