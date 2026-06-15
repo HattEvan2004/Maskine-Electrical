@@ -152,14 +152,14 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
             <span className="text-xs font-mono text-slate-500 text-left pl-1 uppercase tracking-wider block">
               Showing {filteredServices.length} electrical solution areas:
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               {filteredServices.map(service => {
                 const isSelected = selectedService?.id === service.id;
                 return (
                   <div
                     key={service.id}
                     onClick={() => setSelectedService(service)}
-                    className={`p-5 rounded-xl text-left cursor-pointer transition-all border ${
+                    className={`p-3.5 sm:p-5 rounded-xl text-left cursor-pointer transition-all border ${
                       isSelected
                         ? 'bg-gradient-to-br from-slate-950 to-slate-900 border-amber-500/50 shadow-lg'
                         : 'bg-slate-950/40 border-slate-800/80 hover:bg-slate-950 hover:border-slate-800'
@@ -182,10 +182,10 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
                     }`}>
                       {service.title}
                     </h3>
-                    <p className="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+                    <p className="hidden sm:block text-slate-400 text-xs line-clamp-2 leading-relaxed">
                       {service.description}
                     </p>
-                    <div className="flex items-center gap-1.5 mt-3 text-[10px] uppercase tracking-wider text-amber-500/90 font-mono font-bold">
+                    <div className="hidden sm:flex items-center gap-1.5 mt-3 text-[10px] uppercase tracking-wider text-amber-500/90 font-mono font-bold">
                       <span>View details</span>
                       <ChevronRight size={12} className={`transition-transform duration-300 ${isSelected ? 'translate-x-1' : ''}`} />
                     </div>
