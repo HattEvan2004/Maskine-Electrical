@@ -122,7 +122,7 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
             Whether upgrading an older historic Halifax duplex, adding heat pumps, installing EV charging ports, or solving power line concerns, our crew is equipped for any phase of your project.
           </p>
 
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center mt-5 sm:mt-8 bg-slate-950/80 p-1.5 rounded-xl border border-slate-800">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center mt-10 sm:mt-8 bg-slate-950/80 p-1.5 rounded-xl border border-slate-800">
             {(['all', 'residential', 'commercial', 'emergency'] as const).map(category => (
               <button
                 key={category}
