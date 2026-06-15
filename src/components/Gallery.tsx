@@ -17,8 +17,8 @@ export default function Gallery() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <div className="flex justify-center mb-5" aria-hidden="true">
-            <svg width="220" height="24" viewBox="0 0 220 24" fill="none" className="overflow-visible">
+          <div className="flex justify-center mb-6 pt-2" aria-hidden="true">
+            <svg width="220" height="24" viewBox="0 0 220 24" fill="none">
               <path d="M2 12 H70 L82 4 H138 L150 12 H218" stroke="#1e293b" strokeWidth="2" fill="none" />
               <path d="M2 12 H70 L82 4 H138 L150 12 H218" stroke="#fbbf24" strokeWidth="2" fill="none" className="circuit-flow" style={{filter:'drop-shadow(0 0 4px rgba(251,191,36,0.8))'}} />
               <circle cx="2" cy="12" r="3" fill="#fbbf24" className="circuit-node" />
