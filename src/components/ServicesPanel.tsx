@@ -111,7 +111,7 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
     <section id="services" className="py-24 bg-slate-900 text-slate-100 border-t border-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 flex flex-col items-center">
           <span className="text-xs font-mono font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full mb-4">
             Expert Electrical Services
           </span>
