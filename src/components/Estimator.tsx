@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ESTIMATE_ITEMS } from '../data';
 import { useSiteContent } from '../sanity/useSiteContent';
 import { EstimateItem } from '../types';
@@ -32,6 +32,8 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
 
   const selectedObjects = items.filter(item => selectedItems.includes(item.id));
   const totalPrice = selectedObjects.reduce((acc, curr) => acc + curr.basePrice, 0);
+  const totalRef = useRef<HTMLDivElement>(null);
+  const scrollToTotal = () => totalRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   // Timeframe calculation (shows high bound or combination range)
   const calculateCombinedTimeframe = () => {
@@ -217,7 +219,7 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
                     </span>
                   </div>
                   
-                  <div className="flex justify-between items-center border-t border-slate-950 pt-3">
+                  <div ref={totalRef} className="flex justify-between items-center border-t border-slate-950 pt-3">
                     <span className="text-white font-display font-medium text-base">Total Base Estimate</span>
                     <span className="font-mono text-2xl font-bold text-amber-400 glow-text">
                       ${totalPrice.toLocaleString()}
@@ -254,6 +256,21 @@ export default function Estimator({ onApplyEstimateToBooking }: EstimatorProps) 
         </div>
 
       </div>
+
+      {selectedObjects.length > 0 && (
+        <button
+          onClick={scrollToTotal}
+          className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-900 border-t border-amber-500/40 px-4 py-3.5 flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.5)]"
+        >
+          <span className="flex flex-col items-start">
+            <span className="text-[10px] uppercase tracking-wider text-slate-400 font-mono">Estimate Total ({selectedObjects.length})</span>
+            <span className="text-amber-400 font-mono font-bold text-lg">${totalPrice.toLocaleString()}</span>
+          </span>
+          <span className="bg-amber-500 text-slate-950 font-bold text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
+            View Estimate <ArrowRight size={15} />
+          </span>
+        </button>
+      )}
     </section>
   );
 }
