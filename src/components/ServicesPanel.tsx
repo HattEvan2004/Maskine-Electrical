@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SERVICES_DATA } from '../data';
 import { Service } from '../types';
 import { client } from '../sanity/client';
@@ -13,6 +13,8 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'commercial' | 'emergency'>('all');
   const [services, setServices] = useState<Service[]>(SERVICES_DATA);
   const [selectedService, setSelectedService] = useState<Service | null>(SERVICES_DATA[0]);
+  const spotlightRef = useRef<HTMLDivElement>(null);
+  const selectService = (service: Service) => { setSelectedService(service); if (typeof window !== 'undefined' && window.innerWidth < 1024) { setTimeout(() => spotlightRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); } };
 
   useEffect(() => {
     client.fetch(`*[_type == "siteSettings"][0].services`)
@@ -158,7 +160,7 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
                 return (
                   <div
                     key={service.id}
-                    onClick={() => setSelectedService(service)}
+                    onClick={() => selectService(service)}
                     className={`p-3.5 sm:p-5 rounded-xl text-left cursor-pointer transition-all border ${
                       isSelected
                         ? 'bg-gradient-to-br from-slate-950 to-slate-900 border-amber-500/50 shadow-lg'
@@ -196,7 +198,7 @@ export default function ServicesPanel({ onScrollToEstimator, onScrollToBooking }
           </div>
 
           {selectedService && (
-            <div className="col-span-1 lg:col-span-5 bg-slate-950 border border-slate-800 rounded-2xl p-6 lg:p-8 text-left sticky top-28 shadow-xl">
+            <div className="col-span-1 lg:col-span-5 bg-slate-950 border border-slate-800 rounded-2xl p-6 lg:p-8 text-left sticky top-28 shadow-xl scroll-mt-24" ref={spotlightRef}>
               <span className="text-[11px] font-mono uppercase tracking-widest text-slate-500 block mb-2">
                 Service Spotlight
               </span>
