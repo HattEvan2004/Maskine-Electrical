@@ -27,21 +27,21 @@ export default function Gallery() {
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="columns-1 sm:columns-2 gap-4 [column-fill:_balance]">
           {photos.map((photo: any, i: number) => {
             const full = urlFor(photo).width(1600).url();
-            const thumb = urlFor(photo).width(800).height(600).fit('crop').url();
+            const thumb = urlFor(photo).width(1000).url();
             return (
               <button
                 key={photo._key || i}
                 onClick={() => setActiveImage(full)}
-                className="group relative overflow-hidden rounded-xl border border-slate-800 aspect-[4/3] focus:outline-none focus:ring-2 focus:ring-amber-400"
+                className="group relative block w-full mb-4 break-inside-avoid overflow-hidden rounded-xl border border-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400"
               >
                 <img
                   src={thumb}
                   alt={photo.caption || 'Maskine Electric project'}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 {photo.caption && (
