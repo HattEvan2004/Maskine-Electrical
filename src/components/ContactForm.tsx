@@ -39,9 +39,9 @@ export default function ContactForm({
     }
   }, [initialEstimateSummary, initialEstimateTotal, highlightedServiceTitle]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!fullName || !phone || !address) {
       alert("Please fill in your name, contact phone, and site address so we can plan dispatch.");
       return;
@@ -49,30 +49,46 @@ export default function ContactForm({
 
     setIsSubmitting(true);
 
-    // Simulate sending permit request & database save
-    setTimeout(() => {
-      const mockReceipt: BookingInquiry = {
-        id: `MKN-${Math.floor(100000 + Math.random() * 900000)}`,
-        fullName,
-        email: email || 'No email provided',
-        phone,
-        serviceType,
-        description: description || 'Routine project walk-through requested.',
-        preferredElectrician,
-        urgency,
-        address,
-        createdAt: new Date().toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
-      };
+    const receiptId = `MKN-${Math.floor(100000 + Math.random() * 900000)}`;
+    const createdAt = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
 
-      setSubmissionReceipt(mockReceipt);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'b95cbd21-7f28-471e-befa-bc49d326784f',
+          subject: `New Quote Request from ${fullName} (${urgency})`,
+          from_name: 'Maskine Electric Website',
+          'Reference ID': receiptId,
+          'Full Name': fullName,
+          'Phone': phone,
+          'Email': email || 'Not provided',
+          'Worksite Address': address,
+          'Service Type': serviceType,
+          'Preferred Electrician': preferredElectrician,
+          'Urgency': urgency,
+          'Project Details': description || 'No additional details provided.',
+          'Submitted': createdAt
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmissionReceipt({
+          id: receiptId, fullName, email: email || 'No email provided', phone,
+          serviceType, description: description || 'Routine project walk-through requested.',
+          preferredElectrician, urgency, address, createdAt
+        });
+      } else {
+        alert('Something went wrong sending your request. Please call us directly at 902-802-5306.');
+      }
+    } catch (err) {
+      alert('Could not send your request. Please check your connection or call us at 902-802-5306.');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleResetForm = () => {
