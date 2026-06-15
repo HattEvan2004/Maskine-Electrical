@@ -27,7 +27,7 @@ export default function Gallery() {
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="columns-1 sm:columns-2 gap-4 [column-fill:_balance]">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
           {photos.map((photo: any, i: number) => {
             const full = urlFor(photo).width(1600).url();
             const thumb = urlFor(photo).width(1000).url();
